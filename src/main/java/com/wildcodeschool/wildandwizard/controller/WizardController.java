@@ -2,6 +2,7 @@ package com.wildcodeschool.wildandwizard.controller;
 
 import com.wildcodeschool.wildandwizard.entity.Wizard;
 import com.wildcodeschool.wildandwizard.repository.WizardRepository;
+import com.wildcodeschool.wildandwizard.repository.WizardDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class WizardController {
 
-    private WizardRepository repository = new WizardRepository();
+    @Autowired
+    private WizardDao repository;
 
     @GetMapping("/wizards")
     public String getAll(Model model) {
